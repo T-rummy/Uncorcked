@@ -1,0 +1,23 @@
+.login {
+    margin-top: 45%;
+}
+button {
+    background-color: rgb(111, 66, 193);;
+}
+.form-control {
+    border:0;
+}
+.submit {
+    height: 100px;
+}
+i {
+    color: white;
+    margin-top: 200px;
+    margin-left: 380px;
+    align-content: center;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+}
