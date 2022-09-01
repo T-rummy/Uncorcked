@@ -1,6 +1,7 @@
 
 * {
-    box-sizing: border-box
+    box-sizing: border-box;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 /* Full-width input fields */
@@ -29,7 +30,7 @@ button {
     margin: 8px 0;
     border: none;
     cursor: pointer;
-    width: 100%;
+    width: 101%;
     opacity: 0.9;
 }
 
@@ -136,11 +137,25 @@ i {
     margin-top: 200px;
     margin-left: 40%;
     margin-right: auto;
+    
 }
 
 h1 {
     color: purple;
     text-align: center;
+    font-size: 100px;
+    font-weight: 100;
+    font-stretch: expanded;
+    
+}
+.sign-up{
+position: absolute;
+margin-top: -100%;
+margin-left: auto;
+}
+.logo {
+height: 50px;
+    margin-top: 300px;
 }
 
 /* Change styles for cancel button and signup button on extra small screens */
