@@ -3,7 +3,7 @@
     <script src="https://kit.fontawesome.com/a2d563b317.js" crossorigin="anonymous"></script>
 
 <link rel="stylesheet" href="public/stylesheets/style.css">
- <body class="bg-dark">
+ <body class="bg-dark row">
     <div class="logo">
         
     <i class="fa-solid fa-champagne-glasses bg-dark fa-10x"></i>
@@ -20,22 +20,24 @@
     <input type="text" class="form-control border-bottom border-dark fs-1 " placeholder="Password" aria-label="Password"
         aria-describedby="addon-wrapping">
 </div>
-        <button onclick="document.getElementById('id01').style.display='block'" type="submit" class=" mt-5 mt-lg-1 fs-1 submit shadow-lg rounded">login</button>
-        <button onclick="document.getElementById('id02').style.display='block'" class="mb-3 mt-5 mt-lg-1 fs-1 submit shadow-lg rounded">Sign Up</button>
+        <button type="submit" class=" mt-5 mt-lg-1 fs-1 submit shadow-lg rounded">login</button>
+        
+
     </div>
+   
 </form>
-</body> 
-<body >
+
+<button class="mt-5 mt-lg-1 fs-1 submit shadow-lg rounded"
+    onclick="document.getElementById('id01').style.display='block'">Sign Up</button>
 
 
 
 
-<!-- Button to open the modal -->
 
 
 <!-- The Modal (contains the Sign Up form) -->
-<div id="id02" class="modal">
-    <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal"></span>
+<div id="id01" class="modal">
+    <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal"></span>
     <form class="modal-content" action="/action_page.php">
         <div class="container">
             <h1>Sign Up</h1>
@@ -47,12 +49,11 @@
             <label for="psw"><b>Password</b></label>
             <input type="password" placeholder="Enter Password" name="psw" required>
 
-            <label for="username"><b>Username</b></label>
+            <label for="psw-repeat"><b>Username</b></label>
             <input type="text" placeholder="Username" name="psw-repeat" required>
 
-
-
            
+
 
             <div class="clearfix">
                 <button type="button" onclick="document.getElementById('id01').style.display='none'"
@@ -61,5 +62,6 @@
             </div>
         </div>
     </form>
+</div>
 <script src="public/javascript/login.js"></script>
 </body>
