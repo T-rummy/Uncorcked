@@ -23,7 +23,6 @@ User.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-
     // define an email column
     email: {
       type: DataTypes.STRING,
@@ -42,6 +41,13 @@ User.init(
       validate: {
         // this means the password must be at least four characters long
         len: [4],
+      },
+    },
+    age: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        min: 21,
       },
     },
   },
