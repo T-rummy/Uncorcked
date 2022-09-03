@@ -46,7 +46,15 @@ router.post("/", (req, res) => {
     password: req.body.password,
     age: req.body.age,
   })
-    .then((dbUserData) => res.json(dbUserData))
+
+      .then((dbUserData) => {
+     if (!dbUserData[0]) {
+         res.json({message: "Users must be at least 21 years of age to create an account."});
+        return;
+      }
+      res.json(dbUserData);
+    })
+    
     .catch((err) => {
       console.log(err);
       res.status(500).json(err);
@@ -94,4 +102,5 @@ router.delete("/:id", (req, res) => {
       res.status(500).json(err);
     });
 });
+
 module.exports = router;
