@@ -58,6 +58,7 @@ window.onclick = function(event) {
         modal.style.display = "none";
     }
 }
+
   
   document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
   
