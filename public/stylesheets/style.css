@@ -202,7 +202,7 @@ html {
         /* margin-left: 30%; */
         margin-bottom: 50px;
         display: block;
-        left: 43%;
+        left: 42.5%;
         transform: translateY(-50%);
  }
 
@@ -230,16 +230,22 @@ html {
      opacity: 1;
      right: 0;
  }
+ .home-text {
+    color: #818181;
+        margin-top: 100px;
+        text-align: center;
+        font-weight: bold;
+ }
 
  /* Change styles for cancel button and signup button on extra small screens */
   @media screen and (max-width: 600px) {
 
 
       .button {
-          left: 25%;
+          left: 24%;
       }
   }
-  
+
  @media screen and (max-width: 300px) {
 
      .cancelbtn,
