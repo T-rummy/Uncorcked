@@ -11,15 +11,15 @@ function signupFormHandler(event) {
 
   if (username && email && password && age && check) {
     fetch('/api/users', {
-      method: 'post',
+      method: 'POST',
       body: JSON.stringify({
         username,
         email,
         age,
         password
       }),
-      headers: { 'Content-Type': 'application/json' }
-    }).then((response) => {console.log(response)})
+      headers: new Headers ({ 'Content-Type': 'application/json' }),
+    }).then(response => {console.log(response)})
   }
 };
   
