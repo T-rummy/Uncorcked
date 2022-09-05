@@ -2,292 +2,267 @@
     box-sizing: border-box;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
-.page-title {
-    text-align: left;
-}
-.user-profile {
-    text-align: end;
-}
-button {
-    background-color: purple;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    width: 101%;
-    opacity: 0.9;
-}
-.icon-bar {
-    height: 20%;
-    width: 90px;
-    /* Set a specific width */
-    background-color: #555;
-    /* Dark-grey background */
-}
 
-
-.icon-bar a {
-    display: block;
-    /* Make the links appear below each other instead of side-by-side */
-    text-align: left;
-    /* Center-align text */
-    padding: 16px;
-    /* Add some padding */
-    transition: all 0.3s ease;
-    /* Add transition for hover effects */
-    color: white;
-    /* White text color */
-    font-size: 36px;
-    /* Increased font-size */
-}
-
-.icon-bar a:hover {
-    background-color: purple;
-   
-    /* Add a hover color */
-}
-.header {
-    padding: 60px;
-    text-align: center;
-    background: purple;
-    color: white;
-    font-size: 30px;
-}
-.openBtn {
-    background: #f1f1f1;
-    border: none;
-    padding: 10px 15px;
-    font-size: 20px;
-    cursor: pointer;
-}
-
-.openBtn:hover {
-    background: #bbb;
-}
-
-.overlay {
+body,
+html {
     height: 100%;
-    width: 100%;
-    display: none;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: rgb(0, 0, 0);
-    background-color: rgb(128, 0, 128);
+    background-color: #111;
 }
-
-.overlay-content {
-    position: relative;
-    top: 46%;
-    width: 80%;
+/* Add a black background color to the top navigation */
+.topnav {
+    background-color:#111;
+    overflow: hidden;
+}
+ .name {
+     color: white;
+ }
+/* Style the links inside the navigation bar */
+.topnav a {
+    float: right;
+    color: #f2f2f2;
     text-align: center;
-    margin-top: 30px;
-    margin: auto;
-    margin-left: 20%;
-}
-
-.overlay .closebtn {
-    position: absolute;
-    top: 20px;
-    right: 45px;
-    font-size: 60px;
-    cursor: pointer;
-    color: white;
-}
-
-.overlay .closebtn:hover {
-    color: #ccc;
-}
-
-.overlay input[type=text] {
-    padding: 15px;
+    padding: 14px 16px;
+    text-decoration: none;
     font-size: 17px;
-    border: none;
-    float: left;
-    width: 80%;
-    background: white;
 }
 
-.overlay input[type=text]:hover {
-    background: #f1f1f1;
-}
-
-.overlay button {
-    float: left;
-    width: 20%;
-    padding: 15px;
-    background: #ddd;
-    font-size: 17px;
-    border: none;
-    cursor: pointer;
-}
-
-.overlay button:hover {
-    background: #bbb;
-}
-.card {
-
-    margin-right: 25%;
-    
-}
-.card-header {
-    background-color: purple;
-    color: white;
-}
-.card-footer {
-    background-color: purple;
-    color: white;
-}
-.btn {
-    background-color: purple;
-    color: white;
-}
-
-
-
-input[type=text],
-input[type=password] {
-    width: 100%;
-    padding: 15px;
-    margin: 5px 0 22px 0;
-    display: inline-block;
-    border: none;
-    background: #f1f1f1;
-}
-
-input[type=text]:focus,
-input[type=password]:focus {
+/* Change the color of links on hover */
+.topnav a:hover {
     background-color: #ddd;
-    outline: none;
+    color: black;
 }
 
-button {
-    background-color: purple;
+/* Add a color to the active/current link */
+.topnav a.active {
+    background-color: #04AA6D;
     color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    width: 101%;
-    opacity: 0.9;
 }
 
-button:hover {
-    opacity: 1;
-}
-
-.cancelbtn {
-    padding: 14px 20px;
-    background-color: purple;
-    margin-left: 20px;
-}
-
-
-.cancelbtn,
-.signupbtn {
-    float: left;
-    width: 50%;
-}
-
-.container {
-    padding: 16px;
-}
-
-.modal {
-    display: none;
-
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
+/* The side navigation menu */
+.sidenav {
+    height: 0;
+    /* 100% Full-height */
     width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: #474e5d;
-    padding-top: 50px;
+    /* 0 width - change this with JavaScript */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Stay on top */
+    top: 0;
+    left: 0;
+    background-color: #111;
+    /* Black*/
+    overflow-x: hidden;
+    /* Disable horizontal scroll */
+    
+    /* Place content 60px from the top */
+    transition: 0.5s;
+    /* 0.5 second transition effect to slide in the sidenav */
+}
+.srch {
+        margin-top: 65px;
+            width: inherit;
 }
 
-.modal-content {
-    background-color: #fefefe;
-    margin: 5% auto 15% auto;
-    border: 1px solid #888;
-    width: 80%;
+
+
+/* The navigation menu links */
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+    align-items: center;
 }
 
-hr {
-    border: 1px solid #f1f1f1;
-    margin-bottom: 25px;
-}
-
-.close {
-    position: absolute;
-    right: 35px;
-    top: 15px;
-    font-size: 40px;
-    font-weight: bold;
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
     color: #f1f1f1;
 }
 
-.close:hover,
-.close:focus {
-    color: #f44336;
-    cursor: pointer;
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
 }
 
-.clearfix::after {
-    content: "";
-    clear: both;
-    display: table;
-}
-.login {
-    margin-top: 45%;
-}
-
-button {
-
-    width: 30%;
-}
-
-.form-control {
-    border: 0;
-}
-
-.submit {
-    height: 100px;
-}
-
-i {
-    color: white;
-    margin-top: 200px;
-    margin-left: 40%;
-    margin-right: auto;
+ input[type=text],
+ input[type=password] {
+     width: 100%;
+     padding: 15px;
+     margin: 5px 0 22px 0;
+     display: inline-block;
+     border: none;
+     background: #f1f1f1;
+     border-radius: 15px;
     
-}
+ }
 
-h1 {
-    color: purple;
-    text-align: center;
-    font-size: 100px;
-    font-weight: 100;
-    font-stretch: expanded;
+ input[type=text]:focus,
+ input[type=password]:focus {
+     background-color: #ddd;
+     outline: none;
     
-}
-.sign-up{
-position: absolute;
-margin-left: auto;
-}
-.logo {
-    margin-top: 20px;
-}
+ }
+ .login {
+     border-radius: 15px;
+     border: solid 3px white;
+     background-color: #111;
+     
+ }
+
+ hr {
+     border: 1px solid #f1f1f1;
+     margin-bottom: 25px;
+ }
+
+ /* Set a style for all buttons */
+ button {
+    
+     color: white;
+     padding: 14px 20px;
+     margin: 8px 0;
+     border: none;
+     cursor: pointer;
+     width: 100%;
+     opacity: 0.9;
+ }
+
+ button:hover {
+     opacity: 1;
+ }
 
 
-@media screen and (max-width: 300px) {
 
-    .cancelbtn,
-    .signupbtn {
-        width: 100%;
+ /* Float cancel and signup buttons and add an equal width */
+ .cancelbtn {
+     float: left;
+     width: 25%;
+    border-radius: 15px;
+    background-color: #111;
+    border: solid 3px white;
+    
+ }
+ .signupbtn {
+     float: left;
+     width: 25%;
+    border-radius: 15px;
+    background-color: #111;
+    border: solid 3px white;
+    margin-left: 20px;
+ }
+
+ /* Add padding to container elements */
+ .container {
+     padding: 16px;
+     color: white;
+ }
+
+ /* Clear floats */
+ .clearfix::after {
+     content: "";
+     clear: both;
+     display: table;
+ }
+
+ /* The hero image */
+ .hero-image {
+     /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
+     background-image: url("../assets/wine2.jpg");
+     box-shadow: inset 0 0 100px #111;
+
+     /* Set a specific height */
+     height: 50%;
+
+     /* Position and center the image to scale nicely on all screens */
+     background-position: center;
+     background-repeat: no-repeat;
+     background-size: cover;
+     position: relative;
+ }
+
+ .button {
+    position: absolute;
+        border-radius: 4px;
+        background-color: transparent;
+        border: solid 3px white;
+        color: white;
+        text-align: center;
+        font-size: 28px;
+        padding: 20px;
+        width: 200px;
+        transition: all 0.5s;
+        cursor: pointer;
+        margin: 5px;
+        /* margin-left: 30%; */
+        margin-bottom: 50px;
+        display: block;
+        left: 43%;
+        transform: translateY(-50%);
+ }
+
+ .button span {
+     cursor: pointer;
+     display: inline-block;
+     position: relative;
+     transition: 0.5s;
+ }
+
+ .button span:after {
+     content: '\00bb';
+     position: absolute;
+     opacity: 0;
+     top: 15px;
+     right: -20px;
+     transition: 0.5s;
+ }
+
+ .button:hover span {
+     padding-right: 25px;
+ }
+
+ .button:hover span:after {
+     opacity: 1;
+     right: 0;
+ }
+
+ /* Change styles for cancel button and signup button on extra small screens */
+  @media screen and (max-width: 600px) {
+
+
+      .button {
+          left: 25%;
+      }
+  }
+  
+ @media screen and (max-width: 300px) {
+
+     .cancelbtn,
+     .signupbtn {
+         width: 100%;
+     }
+ }
+
+
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
     }
+
+    .sidenav a {
+        font-size: 18px;
+    }
+        .button {
+            left: 25%;
+        }
 }
+
+
 
