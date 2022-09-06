@@ -137,13 +137,17 @@ html {
      opacity: 1;
  }
 
+ #map {
+     height: 180px;
+ }
+
 
 
  /* Float cancel and signup buttons and add an equal width */
  .cancelbtn {
      float: left;
      width: 25%;
-    border-radius: 15px;
+   
     background-color: #111;
     border: solid 3px white;
     
@@ -151,10 +155,14 @@ html {
  .signupbtn {
      float: left;
      width: 25%;
-    border-radius: 15px;
     background-color: #111;
     border: solid 3px white;
     margin-left: 20px;
+ }
+
+ .login-form {
+    background-color: #111;
+        border: solid 3px white;
  }
 
  /* Add padding to container elements */
