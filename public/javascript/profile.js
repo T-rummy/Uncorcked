@@ -15,21 +15,21 @@ function closeNav() {
   document.getElementById("mySidenav").style.height = "0";
 }
 
-//  function openNav1() {
-//   document.getElementById("mySidenav2").style.height = "100%";
-// }
+  function openNav1() {
+  document.getElementById("mySidenav2").style.height = "100%";
+ }
 
 
-//  function closeNav1() {
-//  document.getElementById("mySidenav2").style.height = "0";
+  function closeNav1() {
+  document.getElementById("mySidenav2").style.height = "0";
+  }
+
+// function openNav2() {
+//    document.getElementById("mySidenav3").style.height = "350px";
 //  }
 
-function openNav2() {
-   document.getElementById("mySidenav3").style.height = "350px";
- }
-
  
- function closeNav2() {
-  document.getElementById("mySidenav3").style.height = "0";
- }
+//  function closeNav2() {
+//   document.getElementById("mySidenav3").style.height = "0";
+//  }
 

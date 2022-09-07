@@ -10,9 +10,6 @@
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
             integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
             crossorigin="" />
-            <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
-                integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
-                crossorigin=""></script>
     <script src="https://kit.fontawesome.com/a2d563b317.js" crossorigin="anonymous"></script>
     <title>Uncorcked</title>
     <link rel="stylesheet" href="./public/stylesheets/style.css">
@@ -31,17 +28,40 @@
     <input class="srch" type="text" placeholder="Search..">
 </div>
 
-<div id="mySidenav1" class="sidenav">
+<div id="mySidenav2" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick=closeNav1()>&times;</a>
+    <form>
+        <label for="wineName">First Name</label>
+        <input type="text" id="wineName" name="wineName" placeholder="Name of Wine...">
+    
+        <label for="year">Last Name</label>
+        <input type="text" id="year" name="year" placeholder="Year...">
+
+        <label for="type">Type</label>
+        <select id="type" name="type">
+            <option value="Red">Red</option>
+            <option value="White">White</option>
+            <option value="Rose">Rose</option>
+        </select>
+    
+        <label for="region">Country</label>
+        <select id="region" name="region">
+            <option value="Bordeaux">Bordeaux</option>
+            <option value="Tuscany">Tuscany</option>
+            <option value="Champagne">Champagne</option>
+            <option value="Burgundy">Burgundy</option>
+            <option value="Piedmont">Piedmont</option>
+            <option value="Rhone">Rhone</option>
+        </select>
+    
+        <input type="submit" value="Submit">
+    </form>
 </div>
 
-<div id="mySidenav2" class="sidenav">
+<!-- <div id="mySidenav2" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick=closeNav2()>&times;</a>
     
-    
-</div>
-
-<div id="map"></div>
+</div> -->
 
 
 
@@ -49,6 +69,8 @@
 </body>
 
 <script src= "./public/javascript/profile.js"></script>
-
+<script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+    integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+    crossorigin=""></script>
 
 </html>
