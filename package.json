@@ -1,34 +1,29 @@
 {
-  "dependencies": {
-    "bcrypt": "^5.0.1",
-    "bootstrap": "^5.2.0",
-    "connect-session-sequelize": "^7.1.5",
-    "dotenv": "^16.0.2",
-    "express": "^4.18.1",
-    "express-handlebars": "^6.0.6",
-    "express-session": "^1.17.3",
-    "leaflet": "^1.8.0",
-    "mysql": "^2.18.1",
-    "mysql2": "^2.3.3",
-    "nodemailer": "^6.7.8",
-    "sequelize": "^6.21.4"
-  },
+  "name": "uncorcked",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
-  "name": "uncorcked",
-  "description": "",
-  "version": "1.0.0",
-  "main": "server.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/T-rummy/Uncorcked.git"
   },
+  "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/T-rummy/Uncorcked/issues"
   },
   "homepage": "https://github.com/T-rummy/Uncorcked#readme",
-  "keywords": []
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "dotenv": "^16.0.2",
+    "express": "^4.18.1",
+    "express-handlebars": "^6.0.6",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.21.4"
+  }
 }
