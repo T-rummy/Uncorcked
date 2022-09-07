@@ -64,12 +64,12 @@ router.get("/:id", (req, res) => {
 });
 
 // Post Users
-router.post("/signup", (req, res) => {
+router.post("/", (req, res) => {
   User.create({
     username: req.body.username,
-    // email: req.body.email
+    email: req.body.email,
     password: req.body.password,
-    //age: req.body.age
+    age: req.body.age
   })
     //  .then(dbUserData => res.json(dbUserData))
     //  .catch(err => {

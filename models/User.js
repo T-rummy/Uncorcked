@@ -28,8 +28,8 @@ User.init(
     // define an email column
     email: {
       type: DataTypes.STRING,
-      allowNull: false,
-      unique: true,
+      allowNull: true,
+      unique: false,
       validate: {
         isEmail: true,
       },
