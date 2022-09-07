@@ -1,31 +1,41 @@
-async function newWineHandler(event) {
-  event.preventDefault();
-
-  const name = document.querySelector("#wine").value.trim();
-  const bottle_size = document.querySelector("#size").value.trim();
-  const price_paid = document.querySelector("#retail-price").value.trim();
-  const resell_value = document.querySelector("#resale-price").value.trim();
-  const notes = document.querySelector("#notes").value.trim();
-
-  const response = await fetch(`/api/wine`, {
-    method: "POST",
-    body: JSON.stringify({
-      name,
-      bottle_size,
-      price_paid,
-      resell_value,
-      notes,
-    }),
-    headers: {
-      "Content-Type": "application/json",
-    },
+async function logout() {
+  const response = await fetch('/api/users/logout', {
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' }
   });
 
   if (response.ok) {
-    document.location.replace("/inventory");
+    document.location.replace('/');
   } else {
     alert(response.statusText);
   }
 }
 
-document.querySelector(".new-wine").addEventListener("submit", newWineHandler);
+
+
+function openNav3() {
+  document.getElementById("search2").style.height = "100px";
+  
+}
+
+function closeNav3() {
+  document.getElementById("search2").style.height = "0";
+}
+
+function openNav4() {
+  document.getElementById("add").style.height = "100%";
+}
+
+function closeNav4() {
+  document.getElementById("add").style.height = "0";
+}
+
+function openNav5() {
+  document.getElementById("out").style.height = "100px";
+}
+
+function closeNav5() {
+  document.getElementById("out").style.height = "0";
+}
+
+document.querySelector('#logout').addEventListener('click', logout);
