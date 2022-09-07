@@ -1,53 +1,77 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
+const { truncate } = require("./User");
 
-class Wine extends Model {}
+// create our Post model
+class Wine extends Model {
+  static upvote(body, models) {
+    return models.Vote.create({
+      user_id: body.user_id,
+      wine_id: body.wine_id,
+    }).then(() => {
+      return Wine.findOne({
+        where: {
+          id: body.wine_id,
+        },
+        attributes: [
+          "id",
+          "name",
+          "bottle_size",
+          "price_paid",
+          "resell_value",
+          "user_id",
+          [
+            sequelize.literal(
+              "(SELECT COUNT(*) FROM vote WHERE wine.id = vote.wine_id)"
+            ),
+            "vote_count",
+          ],
+        ],
+      });
+    });
+  }
+}
 
+// create fields/columns for Post model
 Wine.init(
   {
     id: {
-      // use the special Sequelize DataTypes object provide what type of data it is
       type: DataTypes.INTEGER,
-      // this is the equivalent of SQL's `NOT NULL` option
       allowNull: false,
-      // instruct that this is the Primary Key
       primaryKey: true,
-      // turn on auto increment
       autoIncrement: true,
     },
+    // We talked about limiting the number of preselected...will need to work in to code
     name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    year: {
+    bottle_size: {
+      type: DataTypes.TEXT,
+      allowNull: truncate,
+    },
+    price_paid: {
+      type: DataTypes.FLOAT,
+      allowNull: true,
+    },
+    resell_value: {
+      type: DataTypes.FLOAT,
+      alllowNull: true,
+    },
+    notes: {
+      type: DataTypes.TEXT,
+      allowNull: true,
+    },
+    user_id: {
       type: DataTypes.INTEGER,
-      allowNull: false,
-    },
-    type: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    price: {
-      type: DataTypes.DECIMAL,
-      allowNull: false,
-    },
-    alcohol_content: {
-      type: DataTypes.DECIMAL,
-      allowNull: false,
-    },
-    region: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    rating: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
+      references: {
+        model: "user",
+        key: "id",
+      },
     },
   },
-
   {
     sequelize,
-    timestamps: false,
     freezeTableName: true,
     underscored: true,
     modelName: "wine",

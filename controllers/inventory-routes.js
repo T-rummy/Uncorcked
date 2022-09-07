@@ -1,10 +1,15 @@
 const router = require("express").Router();
 const sequelize = require("../config/connection");
 const { Wine, User, Vote, Comment } = require("../models");
+// const withAuth = require("../utils/auth");
 
-// Get all Wines render homepage
-router.get("/", (req, res) => {
+// Get all Wines for /inventory
+router.get("/",  (req, res) => {
+  console.log(req.session);
   Wine.findAll({
+    where: {
+      user_id: req.session.user_id,
+    },
     attributes: [
       "id",
       "name",
@@ -36,24 +41,12 @@ router.get("/", (req, res) => {
   })
     .then((dbWineData) => {
       const wines = dbWineData.map((wine) => wine.get({ plain: true }));
-      res.render("homepage", {
-        wines,
-        loggedIn: req.session.loggedIn,
-      });
+      res.render("inventory", { wines, loggedIn: true });
     })
     .catch((err) => {
       console.log(err);
       res.status(500).json(err);
     });
-});
-
-// Login
-router.get("/login", (req, res) => {
-  if (req.session.loggedIn) {
-    res.redirect("/");
-    return;
-  }
-  res.render("login");
 });
 
 // Get wine by ID
