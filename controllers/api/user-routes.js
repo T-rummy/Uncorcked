@@ -5,7 +5,7 @@ const { User, Wine, Vote } = require("../../models");
 // Get all users
 router.get("/", (req, res) => {
   User.findAll({
-    attributes: { exclude: ["password"] },
+    // attributes: { exclude: ["password"] },
   })
     .then((dbUserData) => res.json(dbUserData))
     .catch((err) => {
@@ -94,7 +94,7 @@ router.post("/", (req, res) => {
 router.post("/login", (req, res) => {
   User.findOne({
     where: {
-      username: req.body.username,
+      email: req.body.email,
     },
   }).then((dbUserData) => {
     if (!dbUserData) {

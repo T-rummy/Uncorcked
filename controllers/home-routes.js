@@ -101,8 +101,8 @@ router.get("/wine/:id", (req, res) => {
       const wine = dbWineData.get({ plain: true });
 
       res.render("single-wine", {
-        wine,
-        loggedIn: req.session.loggedIn,
+        wine
+        // loggedIn: req.session.loggedIn,
       });
     })
     .catch((err) => {

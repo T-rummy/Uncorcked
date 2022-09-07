@@ -43,7 +43,7 @@ router.get("/", (req, res) => {
 });
 
 // Get wine by ID
-router.get("/:id", (req, res) => {
+router.get("/:name", (req, res) => {
   Wine.findOne({
     where: {
       id: req.params.id,

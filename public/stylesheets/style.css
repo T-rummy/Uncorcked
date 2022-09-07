@@ -272,6 +272,13 @@ html {
      background-color: #45a049;
  }
 
+ .post {
+     z-index: 100000;
+     background-color: white;
+     text-align: center;
+     font-size: x-large;
+ }
+
  /* Change styles for cancel button and signup button on extra small screens */
   @media screen and (max-width: 600px) {
 
