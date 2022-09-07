@@ -1,41 +1,31 @@
-async function logout() {
-  const response = await fetch('/api/users/logout', {
+async function newFormHandler(event) {
+  event.preventDefault();
+
+  const name = document.querySelector('#name').value;
+  const size = document.querySelector('#size').value;
+  const price = document.querySelector('#price').value;
+  const resell = document.querySelector('#resell').value;
+  const notes = document.querySelector('#notes').value;
+
+  const response = await fetch(`/api/wine/`, {
     method: 'post',
-    headers: { 'Content-Type': 'application/json' }
+    body: JSON.stringify({
+      name,
+      size,
+      price,
+      resell,
+      notes
+    }),
+    headers: {
+      'Content-Type': 'application/json'
+    }
   });
 
   if (response.ok) {
-    document.location.replace('/');
+    document.location.replace('/dashboard');
   } else {
     alert(response.statusText);
   }
 }
 
-
-
-function openNav3() {
-  document.getElementById("search2").style.height = "100px";
-  
-}
-
-function closeNav3() {
-  document.getElementById("search2").style.height = "0";
-}
-
-function openNav4() {
-  document.getElementById("add").style.height = "100%";
-}
-
-function closeNav4() {
-  document.getElementById("add").style.height = "0";
-}
-
-function openNav5() {
-  document.getElementById("out").style.height = "100px";
-}
-
-function closeNav5() {
-  document.getElementById("out").style.height = "0";
-}
-
-document.querySelector('#logout').addEventListener('click', logout);
+document.querySelector('.new-post-form').addEventListener('submit', newFormHandler);
