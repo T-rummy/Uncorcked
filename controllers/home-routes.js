@@ -38,8 +38,10 @@ router.get("/", (req, res) => {
       const wines = dbWineData.map((wine) => wine.get({ plain: true }));
       res.render("homepage", {
         wines,
-        loggedIn: req.session.loggedIn,
-      });
+        loggedIn: req.session.loggedIn
+        
+      }
+      )
     })
     .catch((err) => {
       console.log(err);
@@ -101,8 +103,8 @@ router.get("/wine/:id", (req, res) => {
       const wine = dbWineData.get({ plain: true });
 
       res.render("single-wine", {
-        wine
-        // loggedIn: req.session.loggedIn,
+        wine,
+        loggedIn: req.session.loggedIn,
       });
     })
     .catch((err) => {
