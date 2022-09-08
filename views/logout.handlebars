@@ -1,8 +1,4 @@
-
-{{> post-info post}}
-
-{{#if loggedIn}}
-  <div id="search2" class="sidenav">
+  {{!-- <div id="search2" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick=closeNav3()>&times;</a>
         <input class="srch" type="text" placeholder="Search..">
     </div>
@@ -26,7 +22,7 @@
         <input id="notes" type="text"  name="notes" placeholder="Thoughts...">
 
     
-        <input class="new-post-form"type="submit" >
+        <input class="new-post-form"type="submit" value="Submit">
     </form>
 </div>
 
@@ -41,14 +37,4 @@
          
     </div> 
 
-    <script src="/javascript/logout.js"></script>
-{{/if}}
-
-{{> comments post.comments}}
-
-{{#if loggedIn}}
-<script src="/javascript/comment.js"></script>
-<script src="/javascript/add-wine.js"></script>
-{{!-- <script src="/javascript/upvote.js"></script> --}}
-{{/if}}
-  
+    <script src="/javascript/logout.js"></script> --}}

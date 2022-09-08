@@ -15,7 +15,7 @@
 </head>
 
 <body>
-   {{!-- <div class="wrapper"> --}}
+  
      {{#if loggedIn}}
       <nav class="topnav shadow-sm">
        <h1 class=" name float-start mx-3 mt-2">uncorked</h1>
@@ -24,44 +24,6 @@
         <a onclick=openNav5()  style="color: white"><i class="fa-solid fa-lock"></i></a>
       </nav> 
 
-      <div id="search2" class="sidenav">
-        <a href="javascript:void(0)" class="closebtn" onclick=closeNav3()>&times;</a>
-        <input class="srch" type="text" placeholder="Search..">
-    </div>
-
-    <div id="add" class="sidenav">
-    <a href="javascript:void(0)" class="closebtn" onclick=closeNav4()>&times;</a>
-    <form>
-        <label for="wineName">Wine Name</label>
-        <input id="name" type="text"  name="wineName" placeholder="Name of Wine...">
-    
-        <label for="size">OZ</label>
-        <input id="size" type="text"  name="year" placeholder="Year...">
-
-        <label for="price">$</label>
-        <input id="price" type="text"  name="price" placeholder="Price...">
-
-        <label for="resell">$</label>
-        <input id="resell" type="text"  name="resell" placeholder="resell value...">
-
-        <label for="notes">Notes</label>
-        <input id="notes" type="text"  name="notes" placeholder="Thoughts...">
-
-    
-        <input class="new-post-form"type="submit" value="Submit">
-    </form>
-</div>
-
-<div id="out" class="sidenav">
-        <a href="javascript:void(0)" class="closebtn" onclick=closeNav5()>&times;</a>
-        <form>
-            
-        
-            <div class="container">
-        
-                <button id="logout" class="login-form" type="submit">Logout</button>
-         
-    </div> 
       {{else}}
 
        <nav class="topnav shadow-sm">
@@ -80,8 +42,7 @@
    
   
   {{#if loggedIn}}
-  <script src="/javascript/logout.js"></script>
-  <script src="/javascript/add-post.js"></script>
+  <script src="/javascript/add-wine.js"></script> 
   {{/if}}
 </body>
 

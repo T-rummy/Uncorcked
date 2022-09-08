@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const { User, Wine, Comment, Vote } = require("../../models");
 const sequelize = require("../../config/connection");
-// const withAuth = require("../../utils/auth");
+ const withAuth = require("../../utils/auth");
 
 // Get all wines
 router.get("/", (req, res) => {
@@ -43,7 +43,7 @@ router.get("/", (req, res) => {
 });
 
 // Get wine by ID
-router.get("/:name", (req, res) => {
+router.get("/:id", (req, res) => {
   Wine.findOne({
     where: {
       id: req.params.id,
@@ -91,24 +91,43 @@ router.get("/:name", (req, res) => {
 });
 
 // Post Wine
-router.post("/",  (req, res) => {
-  Wine.create({
+// router.post("/", withAuth, (req, res) => {
+//   Wine.create({
+//     name: req.body.name,
+//     bottle_size: req.body.bottle_size,
+//     price_paid: req.body.price_paid,
+//     resell_value: req.body.resell_value,
+//     notes: req.body.notes,
+//     user_id: req.session.user_id,
+//   })
+//     .then(dbWineData => res.json(dbWineData))
+//     .catch((err) => {
+//       console.log(err);
+//       res.status(500).json(err);
+//     });
+// });
+
+router.post("/", withAuth, (req, res) => {
+  
+    Wine.create({
     name: req.body.name,
     bottle_size: req.body.bottle_size,
     price_paid: req.body.price_paid,
     resell_value: req.body.resell_value,
     notes: req.body.notes,
-    user_id: req.session.user_id,
-  })
-    .then((dbWineData) => res.json(dbWineData))
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json(err);
-    });
+    user_id: req.session.user_id
+    })
+  
+      .then((dbWineData) => res.json(dbWineData))
+      .catch((err) => {
+        console.log(err);
+        res.status(400).json(err);
+      });
+  
 });
 
 //Wine voting route
-router.put("/upvote",  (req, res) => {
+router.put("/upvote",  withAuth, (req, res) => {
   if (req.session) {
     Wine.upvote(
       { ...req.body, user_id: req.session.user_id },
@@ -123,7 +142,7 @@ router.put("/upvote",  (req, res) => {
 });
 
 // Delete Wines
-router.delete("/:id", (req, res) => {
+router.delete("/:id",withAuth, (req, res) => {
   Wine.destroy({
     where: {
       id: req.params.id,

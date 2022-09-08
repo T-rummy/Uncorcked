@@ -8,7 +8,6 @@ html {
     height: 100%;
     background-color: #111;
 }
-/* Add a black background color to the top navigation */
 .topnav {
     background-color:#111;
     overflow: hidden;
@@ -16,7 +15,6 @@ html {
  .name {
      color: white;
  }
-/* Style the links inside the navigation bar */
 .topnav a {
     float: right;
     color: #f2f2f2;
@@ -26,38 +24,27 @@ html {
     font-size: 17px;
 }
 
-/* Change the color of links on hover */
 .topnav a:hover {
     background-color: #ddd;
     color: black;
 }
 
-/* Add a color to the active/current link */
 .topnav a.active {
     background-color: #04AA6D;
     color: white;
 }
 
-/* The side navigation menu */
 .sidenav {
     height: 0;
-    /* 100% Full-height */
     width: 100%;
-    /* 0 width - change this with JavaScript */
     position: fixed;
-    /* Stay in place */
     z-index: 1;
-    /* Stay on top */
-    top: 0;
+   top: 0;
     left: 0;
     background-color: #111;
-    /* Black*/
     overflow-x: hidden;
-    /* Disable horizontal scroll */
     
-    /* Place content 60px from the top */
     transition: 0.5s;
-    /* 0.5 second transition effect to slide in the sidenav */
 }
 .srch {
         margin-top: 65px;
@@ -66,7 +53,6 @@ html {
 
 
 
-/* The navigation menu links */
 .sidenav a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
@@ -77,12 +63,10 @@ html {
     align-items: center;
 }
 
-/* When you mouse over the navigation links, change their color */
 .sidenav a:hover {
     color: #f1f1f1;
 }
 
-/* Position and style the close button (top right corner) */
 .sidenav .closebtn {
     position: absolute;
     top: 0;
@@ -121,7 +105,6 @@ html {
      margin-bottom: 25px;
  }
 
- /* Set a style for all buttons */
  button {
     
      color: white;
@@ -141,7 +124,6 @@ html {
 
 
 
- /* Float cancel and signup buttons and add an equal width */
  .cancelbtn {
      float: left;
      width: 25%;
@@ -163,29 +145,23 @@ html {
         border: solid 3px white;
  }
 
- /* Add padding to container elements */
  .container {
      padding: 16px;
      color: white;
  }
 
- /* Clear floats */
  .clearfix::after {
      content: "";
      clear: both;
      display: table;
  }
 
- /* The hero image */
  .hero-image {
-     /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
      background-image: url("../assets/wine2.jpg");
      box-shadow: inset 0 0 100px #111;
 
-     /* Set a specific height */
      height: 50%;
 
-     /* Position and center the image to scale nicely on all screens */
      background-position: center;
      background-repeat: no-repeat;
      background-size: cover;
@@ -242,7 +218,6 @@ html {
         text-align: center;
         font-weight: bold;
  }
- /* Style inputs */
  input[type=text],
  select {
      width: 100%;
@@ -254,7 +229,6 @@ html {
      box-sizing: border-box;
  }
 
- /* Style the submit button */
  input[type=submit] {
      width: 100%;
      color: white;
@@ -267,7 +241,6 @@ html {
     
  }
 
- /* Add a background color to the submit button on mouse-over */
  input[type=submit]:hover {
      background-color: #45a049;
  }
@@ -279,7 +252,6 @@ html {
      font-size: x-large;
  }
 
- /* Change styles for cancel button and signup button on extra small screens */
   @media screen and (max-width: 600px) {
 
 
@@ -298,7 +270,6 @@ html {
 
 
 
-/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
     .sidenav {
         padding-top: 15px;
