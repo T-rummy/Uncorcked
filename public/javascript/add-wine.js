@@ -30,8 +30,9 @@
 
 // document.querySelector('.new-post-form').addEventListener('submit', newFormHandler);
 
-async function newWine(event) {
-  event.preventDefault();
+async function newWine() {
+  // event.preventDefault();
+  console.log("Hello");
 
    const name = document.querySelector('#name').value.trim();
    const size = document.querySelector('#size').value.trim();
@@ -40,7 +41,8 @@ async function newWine(event) {
   const notes = document.querySelector('#notes').value.trim();
 
   if (name) {
-    const response = await fetch('/api/wine', {
+    console.log("Hello");
+    const response = await fetch('/api/wine/', {
       method: "POST",
       body: JSON.stringify({
         name,
@@ -53,7 +55,8 @@ async function newWine(event) {
     });
 
     if (response.ok) {
-      document.location.replace('/dashboard');
+      console.log("Hello");
+      document.location.replace('/');
     } else {
       alert(response.statusText);
     }
