@@ -17,6 +17,7 @@ router.get("/",  (req, res) => {
       "price_paid",
       "resell_value",
       "notes",
+      "userId",
       [
         sequelize.literal(
           "(SELECT COUNT(*) FROM vote WHERE wine.id = vote.wine_id)"
@@ -27,7 +28,7 @@ router.get("/",  (req, res) => {
     include: [
       {
         model: Comment,
-        attributes: ["id", "comment_text", "wine_id", "user_id", "created_at"],
+        attributes: ["id", "comment_text", "wine_id", "userId", "created_at"],
         include: {
           model: User,
           attributes: ["username"],
@@ -58,10 +59,11 @@ router.get("/wine/:id", (req, res) => {
     attributes: [
       "id",
       "name",
-      "bottle_size",
-      "price_paid",
-      "resell_value",
+      "size",
+      "price",
+      "resell",
       "notes",
+      "userId",
       [
         sequelize.literal(
           "(SELECT COUNT(*) FROM vote WHERE wine.id = vote.wine_id)"
@@ -72,7 +74,7 @@ router.get("/wine/:id", (req, res) => {
     include: [
       {
         model: Comment,
-        attributes: ["id", "comment_text", "wine_id", "user_id", "created_at"],
+        attributes: ["id", "comment_text", "wine_id", "userId", "created_at"],
         include: {
           model: User,
           attributes: ["username"],

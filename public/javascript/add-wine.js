@@ -30,32 +30,38 @@
 
 // document.querySelector('.new-post-form').addEventListener('submit', newFormHandler);
 
-async function newWine() {
-  // event.preventDefault();
-  console.log("Hello");
+
+
+async function newWine(event) {
+   event.preventDefault();
+  
 
    const name = document.querySelector('#name').value.trim();
    const size = document.querySelector('#size').value.trim();
    const price = document.querySelector('#price').value.trim();
    const resell = document.querySelector('#resell').value.trim();
   const notes = document.querySelector('#notes').value.trim();
+  const user_id = window.location.toString().split('/')[
+    window.location.toString().split('/').length - 1
+  ];
+ 
 
   if (name) {
-    console.log("Hello");
-    const response = await fetch('/api/wine/', {
-      method: "POST",
+    
+    const response = await fetch('/api/wines', {
+      method: 'post',
       body: JSON.stringify({
         name,
         size,
         price,
         resell,
-        notes
+        notes,
+        user_id
       }),
-      headers: { 'Content-Type': 'application/json' }
+      headers: { "Content-Type": "application/json" }
     });
 
     if (response.ok) {
-      console.log("Hello");
       document.location.replace('/');
     } else {
       alert(response.statusText);
@@ -63,4 +69,4 @@ async function newWine() {
   }
 }
 
-document.querySelector('.new-post-form').addEventListener('submit', newWine);
+document.querySelector('.new-post-form').addEventListener('click', newWine);

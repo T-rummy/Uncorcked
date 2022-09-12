@@ -27,10 +27,10 @@ router.get("/:id", (req, res) => {
         attributes: [
           "id",
           "name",
-          "bottle_size",
-          "price_paid",
-          "resell_value",
-          "user_id",
+          "size",
+          "price",
+          "resell",
+          "userId",
           "notes",
         ],
       },
@@ -98,7 +98,7 @@ router.post("/login", (req, res) => {
     },
   }).then((dbUserData) => {
     if (!dbUserData) {
-      res.status(400).json({ message: "No user with that user name!" });
+      res.status(400).json({ message: "No user with that username!" });
       return;
     }
 
@@ -109,7 +109,7 @@ router.post("/login", (req, res) => {
       return;
     }
     req.session.save(() => {
-      req.session.user_id = dbUserData.id;
+      req.session.userId = dbUserData.id;
       req.session.email = dbUserData.email;
       req.session.loggedIn = true;
 

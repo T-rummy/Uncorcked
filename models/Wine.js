@@ -1,6 +1,6 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
-// const { truncate } = require("./User");
+const { truncate } = require("./User");
 
 // create our Post model
 class Wine extends Model {
@@ -16,10 +16,10 @@ class Wine extends Model {
         attributes: [
           "id",
           "name",
-          "bottle_size",
-          "price_paid",
-          "resell_value",
-          "user_id",
+          "size",
+          "price",
+          "resell",
+          "userId",
           [
             sequelize.literal(
               "(SELECT COUNT(*) FROM vote WHERE wine.id = vote.wine_id)"
@@ -46,23 +46,26 @@ Wine.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    bottle_size: {
-      type: DataTypes.TEXT,
-      allowNull: false,
-    },
-    price_paid: {
-      type: DataTypes.FLOAT,
+    size: {
+      type: DataTypes.INTEGER,
       allowNull: true,
+     
     },
-    resell_value: {
-      type: DataTypes.FLOAT,
+    price: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+     
+    },
+    resell: {
+      type: DataTypes.INTEGER,
       alllowNull: true,
+      
     },
     notes: {
       type: DataTypes.TEXT,
       allowNull: true,
     },
-    user_id: {
+    userId: {
       type: DataTypes.INTEGER,
       references: {
         model: "user",
@@ -72,6 +75,7 @@ Wine.init(
   },
   {
     sequelize,
+    timestamps: false,
     freezeTableName: true,
     underscored: true,
     modelName: "wine",
