@@ -1,3 +1,5 @@
+
+
 async function deleteFormHandler(event) {
   event.preventDefault();
 
@@ -8,7 +10,7 @@ async function deleteFormHandler(event) {
   const response = await fetch(`/api/wine/${id}`, {
     method: "DELETE",
     body: JSON.stringify({
-      wine_id: id,
+       id
     }),
     headers: {
       "Content-Type": "application/json",
@@ -22,6 +24,5 @@ async function deleteFormHandler(event) {
   }
 }
 
-document
-  .querySelector("#delete-wine-btn")
-  .addEventListener("click", deleteFormHandler);
+
+  addEventListener("click", deleteFormHandler);

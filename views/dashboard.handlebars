@@ -1,0 +1,14 @@
+{{#if wines.length}}
+<section>
+  <h2>Your wines</h2>
+  <ol>
+    {{#each wines as |wine|}}
+    <li>
+      {{> single-wine }}
+      <a href="/dashboard/edit/{{wine.id}}" class="edit-link">Edit post</a>
+    </li>
+    {{/each}}
+  </ol>
+</section>
+{{/if}}
+

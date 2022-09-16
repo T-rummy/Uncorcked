@@ -1,6 +1,6 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
-const { truncate } = require("./User");
+// const { truncate } = require("./User");
 
 // create our Post model
 class Wine extends Model {

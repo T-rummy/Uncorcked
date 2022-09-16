@@ -1,7 +1,15 @@
 
-{{> post-info post}}
+
 
 {{#if loggedIn}}
+
+<ol class="wine mt-5 gy-5 row">
+  {{#each wines as |wine|}}
+  <li class="col-12 col-lg-3">
+    {{> single-wine  }}
+  </li>
+  {{/each}}
+</ol>
   <div id="search2" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick=closeNav3()>&times;</a>
         <input class="srch" type="text" placeholder="Search..">
@@ -39,16 +47,21 @@
         
                 <button id="logout" class="login-form" type="submit">Logout</button>
          
-    </div> 
+</div> 
+
 
     
 {{/if}}
 
-{{> comments post.comments}}
+
+
 
 {{#if loggedIn}}
-<script src="/javascript/comment.js"></script>
 <script src="/javascript/add-wine.js"></script>
+<script src="/javascript/comment.js"></script>
 {{!-- <script src="/javascript/upvote.js"></script> --}}
+
+<script src="/javascript/delete-wine.js"></script>
 {{/if}}
-  
+
+

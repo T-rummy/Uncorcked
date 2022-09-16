@@ -254,11 +254,23 @@ html {
      background-color: #45a049;
  }
 
- .post {
-     z-index: 100000;
-     background-color: white;
+
+ li, article{
+     color: #111;
+ }
+
+ .card {
+     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+     max-width: 300px;
+     margin: auto;
      text-align: center;
-     font-size: x-large;
+     font-family: arial;
+     color: black;
+ }
+
+ .price {
+     color: black;
+     font-size: 22px;
  }
 
   @media screen and (max-width: 600px) {
