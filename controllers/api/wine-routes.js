@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const { User, Wine, Comment, Vote } = require("../../models");
 const sequelize = require("../../config/connection");
-//  const withAuth = require("../../utils/auth");
+  const withAuth = require("../../utils/auth");
 
 // Get all wines
 router.get("/", (req, res) => {
@@ -113,7 +113,7 @@ router.get("/:id", (req, res) => {
   
 // });
 
-router.post('/', (req, res) => {
+router.post('/', withAuth,(req, res) => {
 
   if (req.session) {
     Wine.create({
@@ -133,7 +133,7 @@ router.post('/', (req, res) => {
 });
 
 //Wine voting route
-router.put("/upvote",   (req, res) => {
+router.put("/upvote", withAuth,  (req, res) => {
   if (req.session) {
     Wine.upvote(
       { ...req.body, userId: req.session.userId },
@@ -148,7 +148,7 @@ router.put("/upvote",   (req, res) => {
 });
 
 // Delete Wines
-router.delete("/:id", (req, res) => {
+router.delete("/:id", withAuth,(req, res) => {
   Wine.destroy({
     where: {
       id: req.params.id,
