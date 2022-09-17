@@ -12,7 +12,6 @@ router.get('/', (req, res) => {
       'price',
       'resell',
       'notes',
-      'userId',
       [
         sequelize.literal(
           '(SELECT COUNT(*) FROM vote WHERE wine.id = vote.wine_id)'
@@ -54,7 +53,6 @@ router.get('/:id', (req, res) => {
       'price',
       'resell',
       'notes',
-      'userId',
       [
         sequelize.literal(
           '(SELECT COUNT(*) FROM vote WHERE wine.id = vote.wine_id)'
@@ -69,7 +67,7 @@ router.get('/:id', (req, res) => {
       },
       {
         model: Comment,
-        attributes: ['id', 'comment_text', 'wine_id', 'userId', 'created_at'],
+        attributes: ['id', 'comment_text', 'wine_id',  'created_at'],
         include: {
           model: User,
           attributes: ['username'],
@@ -119,7 +117,6 @@ router.post('/', (req, res) => {
       price: req.body.price,
       resell: req.body.resell,
       notes: req.body.notes,
-      userId: req.session.userId
     })
       .then(dbWineData => res.json(dbWineData))
       .catch(err => {
@@ -133,7 +130,7 @@ router.post('/', (req, res) => {
 router.put('/upvote',  (req, res) => {
   if (req.session) {
     Wine.upvote(
-      { ...req.body, userId: req.session.userId },
+      { ...req.body },
       { Vote, Comment, User }
     )
       .then((updatedVoteData) => res.json(updatedVoteData))

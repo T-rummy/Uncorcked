@@ -29,7 +29,6 @@ router.get('/:id', (req, res) => {
           'name',
           'price',
           'resell',
-          'userId',
           'notes',
         ],
 

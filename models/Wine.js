@@ -18,7 +18,6 @@ class Wine extends Model {
           "name",
           "price",
           "resell",
-          "userId",
           [
             sequelize.literal(
               "(SELECT COUNT(*) FROM vote WHERE wine.id = vote.wine_id)"
@@ -58,21 +57,14 @@ Wine.init(
     notes: {
       type: DataTypes.TEXT,
       allowNull: true,
-    }
-    // userId: {
-    //   type: DataTypes.INTEGER,
-    //   references: {
-    //     model: "user",
-    //     key: "id",
-    //   },
-    // },
+    },
   },
   {
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: false,
-    modelName: "wine",
+    modelName: 'wine',
   }
 );
 

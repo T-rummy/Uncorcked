@@ -13,12 +13,11 @@ router.get('/',  (req, res) => {
 });
 
 // Post new comments
-router.post('/',  (req, res) => {
+router.post("/",  (req, res) => {
   if (req.session) {
     Comment.create({
       comment_text: req.body.comment_text,
       wine_id: req.body.wine_id,
-      userId: req.session.userId,
     })
       .then((dbCommentData) => res.json(dbCommentData))
       .catch((err) => {

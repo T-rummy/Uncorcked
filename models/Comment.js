@@ -11,14 +11,6 @@ Comment.init(
       allowNull: false,
       autoIncrement: true,
     },
-    userId: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: "user",
-        key: "id",
-      },
-    },
     wine_id: {
       type: DataTypes.INTEGER,
       allowNull: false,

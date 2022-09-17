@@ -23,8 +23,7 @@ async function newWine(event) {
         name,
         price,
         resell,
-        notes,
-        user_id
+        notes
       }),
       headers: { "Content-Type": "application/json" }
     });
