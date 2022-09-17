@@ -20,35 +20,35 @@ router.get("/:id", (req, res) => {
     attributes: { exclude: ["password"] },
     where: {
       id: req.params.id,
-    },
-    include: [
-      {
-        model: Wine,
-        attributes: [
-          "id",
-          "name",
-          "size",
-          "price",
-          "resell",
-          "userId",
-          "notes",
-        ],
-      },
-      {
-        model: Comment,
-        attributes: ["id", "wine_id", "comment_text", "user_id", "created_at"],
-        include: {
-          model: Wine,
-          attributes: ["name"],
-        },
-      },
-      {
-        model: Wine,
-        attributes: ["title"],
-        through: Vote,
-        as: "voted_wine",
-      },
-    ],
+     }
+    // include: [
+    //   {
+    //     model: Wine,
+    //     attributes: [
+    //       "id",
+    //       "name",
+    //       "size",
+    //       "price",
+    //       "resell",
+    //       "userId",
+    //       "notes",
+    //     ],
+    //   },
+    //   {
+    //     model: Comment,
+    //     attributes: ["id", "wine_id", "comment_text", "user_id", "created_at"],
+    //     include: {
+    //       model: Wine,
+    //       attributes: ["name"],
+    //     },
+    //   },
+    //   {
+    //     model: Wine,
+    //     attributes: ["title"],
+    //     through: Vote,
+    //     as: "voted_wine",
+    //   },
+    // ],
   })
     .then((dbUserData) => {
       if (!dbUserData) {
