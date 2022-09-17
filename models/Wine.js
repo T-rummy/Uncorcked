@@ -4,32 +4,32 @@ const sequelize = require("../config/connection");
 
 // create our Post model
 class Wine extends Model {
-  static upvote(body, models) {
-    return models.Vote.create({
-      user_id: body.user_id,
-      wine_id: body.wine_id,
-    }).then(() => {
-      return Wine.findOne({
-        where: {
-          id: body.wine_id,
-        }
-        // attributes: [
-        //   "id",
-        //   "name",
-        //   "size",
-        //   "price",
-        //   "resell",
-        //   "userId",
-        //   [
-        //     sequelize.literal(
-        //       "(SELECT COUNT(*) FROM vote WHERE wine.id = vote.wine_id)"
-        //     ),
-        //     "vote_count",
-        //   ],
-        // ],
-      });
-    });
-  }
+  // static upvote(body, models) {
+  //   return models.Vote.create({
+  //     user_id: body.user_id,
+  //     wine_id: body.wine_id,
+  //   }).then(() => {
+  //     return Wine.findOne({
+  //       where: {
+  //         id: body.wine_id,
+  //       },
+  //       attributes: [
+  //         "id",
+  //         "name",
+  //         "size",
+  //         "price",
+  //         "resell",
+  //         "userId",
+  //         [
+  //           sequelize.literal(
+  //             "(SELECT COUNT(*) FROM vote WHERE wine.id = vote.wine_id)"
+  //           ),
+  //           "vote_count",
+  //         ],
+  //       ],
+  //     });
+  //   });
+  // }
 }
 
 // create fields/columns for Post model
@@ -64,14 +64,14 @@ Wine.init(
     notes: {
       type: DataTypes.TEXT,
       allowNull: true,
-    },
-    userId: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: "user",
-        key: "id",
-      },
-    },
+    }
+    // userId: {
+    //   type: DataTypes.INTEGER,
+    //   references: {
+    //     model: "user",
+    //     key: "id",
+    //   },
+    // },
   },
   {
     sequelize,
