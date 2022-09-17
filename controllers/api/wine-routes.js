@@ -1,38 +1,37 @@
-const router = require("express").Router();
-const { User, Wine, Comment, Vote } = require("../../models");
-const sequelize = require("../../config/connection");
+const router = require('express').Router();
+const { User, Wine, Comment, Vote } = require('../../models');
+const sequelize = require('../../config/connection');
 
 
 // Get all wines
-router.get("/", (req, res) => {
+router.get('/', (req, res) => {
   Wine.findAll({
     attributes: [
-      "id",
-      "name",
-      "size",
-      "price",
-      "resell",
-      "notes",
-      "userId",
+      'id',
+      'name',
+      'price',
+      'resell',
+      'notes',
+      'userId',
       [
         sequelize.literal(
-          "(SELECT COUNT(*) FROM vote WHERE wine.id = vote.wine_id)"
+          '(SELECT COUNT(*) FROM vote WHERE wine.id = vote.wine_id)'
         ),
-        "vote_count",
+        'vote_count',
       ],
     ],
     include: [
       {
         model: Comment,
-        attributes: ["id", "comment_text", "wine_id", "user_id", "created_at"],
+        attributes: ['id', 'comment_text', 'wine_id', 'user_id', 'created_at'],
         include: {
           model: User,
-          attributes: ["username"],
+          attributes: ['username'],
         },
       },
       {
         model: User,
-        attributes: ["username"],
+        attributes: ['username'],
       },
     ],
   })
@@ -44,44 +43,43 @@ router.get("/", (req, res) => {
 });
 
 // Get wine by ID
-router.get("/:id", (req, res) => {
+router.get('/:id', (req, res) => {
   Wine.findOne({
     where: {
       id: req.params.id,
     },
     attributes: [
-      "id",
-      "name",
-      "size",
-      "price",
-      "resell",
-      "notes",
-      "userId",
+      'id',
+      'name',
+      'price',
+      'resell',
+      'notes',
+      'userId',
       [
         sequelize.literal(
-          "(SELECT COUNT(*) FROM vote WHERE wine.id = vote.wine_id)"
+          '(SELECT COUNT(*) FROM vote WHERE wine.id = vote.wine_id)'
         ),
-        "vote_count",
+        'vote_count',
       ],
     ],
     include: [
       {
         model: User,
-        attributes: ["username"],
+        attributes: ['username'],
       },
       {
         model: Comment,
-        attributes: ["id", "comment_text", "wine_id", "userId", "created_at"],
+        attributes: ['id', 'comment_text', 'wine_id', 'userId', 'created_at'],
         include: {
           model: User,
-          attributes: ["username"],
+          attributes: ['username'],
         },
       },
     ],
   })
     .then((dbWineData) => {
       if (!dbWineData) {
-        res.status(404).json({ message: "No Wine found with this id" });
+        res.status(404).json({ message: 'No Wine found with this id' });
         return;
       }
       res.json(dbWineData);
@@ -94,7 +92,7 @@ router.get("/:id", (req, res) => {
 
 
 
-// router.post("/", withAuth, (req, res) => {
+// router.post('/', withAuth, (req, res) => {
   
 //     Wine.create({
 //     name: req.body.name,
@@ -118,7 +116,6 @@ router.post('/', (req, res) => {
   if (req.session) {
     Wine.create({
       name: req.body.name,
-      size: req.body.size,
       price: req.body.price,
       resell: req.body.resell,
       notes: req.body.notes,
@@ -133,7 +130,7 @@ router.post('/', (req, res) => {
 });
 
 //Wine voting route
-router.put("/upvote",  (req, res) => {
+router.put('/upvote',  (req, res) => {
   if (req.session) {
     Wine.upvote(
       { ...req.body, userId: req.session.userId },
@@ -148,7 +145,7 @@ router.put("/upvote",  (req, res) => {
 });
 
 // Delete Wines
-router.delete("/:id", (req, res) => {
+router.delete('/:id', (req, res) => {
   Wine.destroy({
     where: {
       id: req.params.id,
@@ -156,7 +153,7 @@ router.delete("/:id", (req, res) => {
   })
     .then((dbWineData) => {
       if (!dbWineData) {
-        res.status(404).json({ message: "No Wine found with this id" });
+        res.status(404).json({ message: 'No Wine found with this id' });
         return;
       }
       res.json(dbWineData);

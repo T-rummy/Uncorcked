@@ -1,11 +1,11 @@
-const router = require("express").Router();
-const { User, Wine, Vote } = require("../../models");
+const router = require('express').Router();
+const { User, Wine, Vote } = require('../../models');
 
 
 // Get all users
-router.get("/", (req, res) => {
+router.get('/', (req, res) => {
   User.findAll({
-    // attributes: { exclude: ["password"] },
+    // attributes: { exclude: ['password'] },
   })
     .then((dbUserData) => res.json(dbUserData))
     .catch((err) => {
@@ -15,9 +15,9 @@ router.get("/", (req, res) => {
 });
 
 // Get users by ID
-router.get("/:id", (req, res) => {
+router.get('/:id', (req, res) => {
   User.findOne({
-    attributes: { exclude: ["password"] },
+    attributes: { exclude: ['password'] },
     where: {
       id: req.params.id,
     },
@@ -25,34 +25,35 @@ router.get("/:id", (req, res) => {
       {
         model: Wine,
         attributes: [
-          "id",
-          "name",
-          "size",
-          "price",
-          "resell",
-          "userId",
-          "notes",
+          'id',
+          'name',
+          'price',
+          'resell',
+          'userId',
+          'notes',
         ],
+
+
       },
       {
         model: Comment,
-        attributes: ["id", "wine_id", "comment_text", "user_id", "created_at"],
+        attributes: ['id', 'wine_id', 'comment_text', 'user_id', 'created_at'],
         include: {
           model: Wine,
-          attributes: ["name"],
+          attributes: ['name'],
         },
       },
       {
         model: Wine,
-        attributes: ["title"],
+        attributes: ['title'],
         through: Vote,
-        as: "voted_wine",
+        as: 'voted_wine',
       },
     ],
   })
     .then((dbUserData) => {
       if (!dbUserData) {
-        res.status(404).json({ message: "No user found with this id" });
+        res.status(404).json({ message: 'No user found with this id' });
         return;
       }
       res.json(dbUserData);
@@ -64,7 +65,7 @@ router.get("/:id", (req, res) => {
 });
 
 // Post Users
-router.post("/", (req, res) => {
+router.post('/', (req, res) => {
   User.create({
     username: req.body.username,
     email: req.body.email,
@@ -90,21 +91,21 @@ router.post("/", (req, res) => {
  
 
 // Login route
-router.post("/login", (req, res) => {
+router.post('/login', (req, res) => {
   User.findOne({
     where: {
       username: req.body.username,
     },
   }).then((dbUserData) => {
     if (!dbUserData) {
-      res.status(400).json({ message: "No user with that user name!" });
+      res.status(400).json({ message: 'No user with that user name!' });
       return;
     }
 
     const validPassword = dbUserData.checkPassword(req.body.password);
 
     if (!validPassword) {
-      res.status(400).json({ message: "Incorrect password!" });
+      res.status(400).json({ message: 'Incorrect password!' });
       return;
     }
     req.session.save(() => {
@@ -112,13 +113,13 @@ router.post("/login", (req, res) => {
       req.session.email = dbUserData.email;
       req.session.loggedIn = true;
 
-      res.json({ user: dbUserData, message: "You are now logged in!" });
+      res.json({ user: dbUserData, message: 'You are now logged in!' });
     });
   });
 });
 
 // Logout route
-router.post("/logout", (req, res) => {
+router.post('/logout', (req, res) => {
   if (req.session.loggedIn) {
     req.session.destroy(() => {
       res.status(204).end();
@@ -129,7 +130,7 @@ router.post("/logout", (req, res) => {
 });
 
 // Update users
-router.put("/:id",  (req, res) => {
+router.put('/:id',  (req, res) => {
   User.update(req.body, {
     individualHooks: true,
     where: {
@@ -138,7 +139,7 @@ router.put("/:id",  (req, res) => {
   })
     .then((dbUserData) => {
       if (!dbUserData[0]) {
-        res.status(404).json({ message: "No user found with this id" });
+        res.status(404).json({ message: 'No user found with this id' });
         return;
       }
       res.json(dbUserData);
@@ -150,7 +151,7 @@ router.put("/:id",  (req, res) => {
 });
 
 // Delete users
-router.delete("/:id", (req, res) => {
+router.delete('/:id', (req, res) => {
   User.destroy({
     where: {
       id: req.params.id,
@@ -158,7 +159,7 @@ router.delete("/:id", (req, res) => {
   })
     .then((dbUserData) => {
       if (!dbUserData) {
-        res.status(404).json({ message: "No user found with this id" });
+        res.status(404).json({ message: 'No user found with this id' });
         return;
       }
       res.json(dbUserData);

@@ -1,9 +1,9 @@
-const router = require("express").Router();
-const { Comment } = require("../../models");
+const router = require('express').Router();
+const { Comment } = require('../../models');
 
 
 // Get comments
-router.get("/",  (req, res) => {
+router.get('/',  (req, res) => {
   Comment.findAll({})
     .then((dbCommentData) => res.json(dbCommentData))
     .catch((err) => {
@@ -13,7 +13,7 @@ router.get("/",  (req, res) => {
 });
 
 // Post new comments
-router.post("/",  (req, res) => {
+router.post('/',  (req, res) => {
   if (req.session) {
     Comment.create({
       comment_text: req.body.comment_text,
@@ -29,7 +29,7 @@ router.post("/",  (req, res) => {
 });
 
 // Delete comments
-router.delete("/:id",  (req, res) => {
+router.delete('/:id',  (req, res) => {
   Comment.destroy({
     where: {
       id: req.params.id,
@@ -37,7 +37,7 @@ router.delete("/:id",  (req, res) => {
   })
     .then((dbCommentData) => {
       if (!dbCommentData) {
-        res.status(404).json({ message: "No comment found with this id" });
+        res.status(404).json({ message: 'No comment found with this id' });
         return;
       }
       res.json(dbCommentData);
