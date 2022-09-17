@@ -12,21 +12,21 @@ class Wine extends Model {
       return Wine.findOne({
         where: {
           id: body.wine_id,
-        },
-        attributes: [
-          "id",
-          "name",
-          "size",
-          "price",
-          "resell",
-          "userId",
-          [
-            sequelize.literal(
-              "(SELECT COUNT(*) FROM vote WHERE wine.id = vote.wine_id)"
-            ),
-            "vote_count",
-          ],
-        ],
+        }
+        // attributes: [
+        //   "id",
+        //   "name",
+        //   "size",
+        //   "price",
+        //   "resell",
+        //   "userId",
+        //   [
+        //     sequelize.literal(
+        //       "(SELECT COUNT(*) FROM vote WHERE wine.id = vote.wine_id)"
+        //     ),
+        //     "vote_count",
+        //   ],
+        // ],
       });
     });
   }
