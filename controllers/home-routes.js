@@ -56,38 +56,38 @@ router.get("/", (req, res) => {
 // Get wine by ID
 router.get("/wine/:id", (req, res) => {
   Wine.findOne({
-    where: {
-      id: req.params.id,
-    },
-    attributes: [
-      "id",
-      "name",
-      "size",
-      "price",
-      "resell",
-      "notes",
-      "userId",
-      [
-        sequelize.literal(
-          "(SELECT COUNT(*) FROM vote WHERE wine.id = vote.wine_id)"
-        ),
-        "vote_count",
-      ],
-    ],
-    include: [
-      {
-        model: Comment,
-        attributes: ["id", "comment_text", "wine_id", "userId", "created_at"],
-        include: {
-          model: User,
-          attributes: ["username"],
-        },
-      },
-      {
-        model: User,
-        attributes: ["username"],
-      },
-    ],
+    // where: {
+    //   id: req.params.id,
+    // },
+    // attributes: [
+    //   "id",
+    //   "name",
+    //   "size",
+    //   "price",
+    //   "resell",
+    //   "notes",
+    //   "userId",
+    //   [
+    //     sequelize.literal(
+    //       "(SELECT COUNT(*) FROM vote WHERE wine.id = vote.wine_id)"
+    //     ),
+    //     "vote_count",
+    //   ],
+    // ],
+    // include: [
+    //   {
+    //     model: Comment,
+    //     attributes: ["id", "comment_text", "wine_id", "userId", "created_at"],
+    //     include: {
+    //       model: User,
+    //       attributes: ["username"],
+    //     },
+    //   },
+    //   {
+    //     model: User,
+    //     attributes: ["username"],
+    //   },
+    // ],
   })
     .then((dbWineData) => {
       if (!dbWineData) {
