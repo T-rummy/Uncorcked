@@ -50,8 +50,10 @@ To view the project follow the link attached to be taken to the live url.
 
 - Github Repository: [https://github.com/T-rummy/Uncorcked] (https://github.com/T-rummy/Uncorcked)
 
-## Credits
+## How to view
+
+clone repo from github install dependencies then navigate to http://localhost:3001/login
 
 ## Screenshot
 
-![alt text](/assets/images/portfolio-screenshot.jpg)
+![alt text](/public/assets/uncorked.jpg)
