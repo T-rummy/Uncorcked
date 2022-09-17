@@ -4,36 +4,36 @@ const { Wine, User, Vote, Comment } = require("../models");
 
 // Get all Wines render homepage
 router.get("/", (req, res) => {
-  // Wine.findAll({
-  //   attributes: [
-  //     "id",
-  //     "name",
-  //     "size",
-  //     "price",
-  //     "resell",
-  //     "notes",
-  //     "userId",
-  //     [
-  //       sequelize.literal(
-  //         "(SELECT COUNT(*) FROM vote WHERE wine.id = vote.wine_id)"
-  //       ),
-  //       "vote_count",
-  //     ],
-  //   ],
-  //   include: [
-  //     {
-  //       model: Comment,
-  //       attributes: ["id", "comment_text", "wine_id", "userId", "created_at"],
-  //       include: {
-  //         model: User,
-  //         attributes: ["username"],
-  //       },
-  //     },
-  //     {
-  //       model: User,
-  //       attributes: ["username"],
-  //     },
-  //   ],
+  Wine.findAll({
+    // attributes: [
+    //   "id",
+    //   "name",
+    //   "size",
+    //   "price",
+    //   "resell",
+    //   "notes",
+    //   "userId",
+    //   [
+    //     sequelize.literal(
+    //       "(SELECT COUNT(*) FROM vote WHERE wine.id = vote.wine_id)"
+    //     ),
+    //     "vote_count",
+    //   ],
+    // ],
+    // include: [
+    //   {
+    //     model: Comment,
+    //     attributes: ["id", "comment_text", "wine_id", "userId", "created_at"],
+    //     include: {
+    //       model: User,
+    //       attributes: ["username"],
+    //     },
+    //   },
+    //   {
+    //     model: User,
+    //     attributes: ["username"],
+    //   },
+    // ],
   })
     .then((dbWineData) => {
       const wines = dbWineData.map((wine) => wine.get({ plain: true }));
