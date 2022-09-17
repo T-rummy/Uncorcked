@@ -13,9 +13,9 @@ router.get("/",  (req, res) => {
     attributes: [
       "id",
       "name",
-      "bottle_size",
-      "price_paid",
-      "resell_value",
+      "size",
+      "price",
+      "resell",
       "notes",
       "userId",
       [
