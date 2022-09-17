@@ -16,7 +16,6 @@ class Wine extends Model {
         attributes: [
           "id",
           "name",
-          "size",
           "price",
           "resell",
           "userId",
@@ -45,11 +44,6 @@ Wine.init(
     name: {
       type: DataTypes.STRING,
       allowNull: false,
-    },
-    size: {
-      type: DataTypes.INTEGER,
-      allowNull: true,
-     
     },
     price: {
       type: DataTypes.INTEGER,

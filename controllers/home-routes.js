@@ -8,7 +8,6 @@ router.get("/", (req, res) => {
     attributes: [
       "id",
       "name",
-      "size",
       "price",
       "resell",
       "notes",
@@ -62,7 +61,6 @@ router.get("/wine/:id", (req, res) => {
     attributes: [
       "id",
       "name",
-      "size",
       "price",
       "resell",
       "notes",

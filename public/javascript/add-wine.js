@@ -7,7 +7,6 @@ async function newWine(event) {
   
 
    const name = document.querySelector('#name').value.trim();
-   const size = document.querySelector('#size').value.trim();
    const price = document.querySelector('#price').value.trim();
    const resell = document.querySelector('#resell').value.trim();
   const notes = document.querySelector('#notes').value.trim();
@@ -22,7 +21,6 @@ async function newWine(event) {
       method: 'post',
       body: JSON.stringify({
         name,
-        size,
         price,
         resell,
         notes,
